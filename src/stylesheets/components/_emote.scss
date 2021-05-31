@@ -1,0 +1,63 @@
+.combo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > * {
+    display: flex;
+  }
+  &--enter {
+    animation: slideIn .25s ease-in-out forwards;
+  }
+  &--pulse {
+    #combo-image {
+      animation: pulse .25s ease-in-out forwards;
+    }
+  }
+  &--exit {
+    animation: slideOut .25s ease-in-out forwards;
+  }
+  &--none {
+    display: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-400px);
+  }
+  60% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(-400px);
+  }
+}
+
+#combo-image {
+  min-height: 110px;
+  object-fit: contain;
+}

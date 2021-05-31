@@ -1,0 +1,120 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "simple-import-sort",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/array-type": "error",
+    "@typescript-eslint/prefer-for-of": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "no-trailing-spaces": "error",
+    "prettier/prettier": "warn",
+    "import/first": "warn",
+    "import/newline-after-import": "off",
+    "import/no-duplicates": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [["^\\u0000", "^@?\\w", "^[^.]", "^\\."]]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          "String": {
+            "message": "Use string instead",
+            "fixWith": "string"
+          },
+          "Boolean": {
+            "message": "Use boolean instead",
+            "fixWith": "boolean"
+          },
+          "Number": {
+            "message": "Use number instead",
+            "fixWith": "number"
+          },
+          "Symbol": {
+            "message": "Use symbol instead",
+            "fixWith": "symbol"
+          },
+          "Function": {
+            "message": "The `Function` type accepts any function-like value.\nIt provides no type safety when calling the function, which can be a common source of bugs.\nIt also accepts things like class declarations, which will throw at runtime as they will not be called with `new`.\nIf you are expecting the function to accept certain arguments, you should explicitly define the function shape."
+          },
+          "Object": {
+            "message": "The `Object` type actually means \"any non-nullish value\", so it is marginally better than `unknown`.\n- If you want a type meaning \"any object\", you probably want `Record<string, unknown>` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead."
+          }
+        },
+        "extendDefaults": false
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": [
+      "warn",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        "minimumDescriptionLength": 5
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "^_{1,2}[^_]",
+        "argsIgnorePattern": "^_{1,2}[^_]"
+      }
+    ],
+    "import/namespace": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/tests/**",
+        "**/test/**",
+        "*.test.*",
+        "**/__mocks__/*",
+        "**/mocks/*",
+        "**/mock-*",
+        "**/mocks.ts"
+      ],
+      "rules": {
+        "no-restricted-imports": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "no-undef": "off"
+      }
+    }
+  ]
+}
