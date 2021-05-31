@@ -1,14 +1,14 @@
 #app {
   width: 400px;
   height: 160px;
-}
-
-h2 {
-  color: var(--text-color);
-  -webkit-text-stroke: 3px black;
-  text-shadow: 0 3px 0 #000;
-  font-size: var(--text-size);
-  padding: 0 1rem;
-  vertical-align: middle;
-  line-height: 1;
+  > span {
+    color: var(--text-color);
+    -webkit-text-stroke: 3px black;
+    text-shadow: 0 3px 0 #000;
+    font-size: var(--text-size);
+    padding: 0 1rem;
+    margin-top: 12px;
+    vertical-align: middle;
+    line-height: 1;
+  }
 }
