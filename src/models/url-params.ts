@@ -33,6 +33,7 @@ export class URLParams {
   }
 
   public bannedEmotes() {
+    // TODO
     return this.get("banned_emotes").split(",") || [];
   }
 
