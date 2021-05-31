@@ -19,6 +19,8 @@ export class Controller {
 
   public pulse() {
     this.appNode.classList.remove("combo--pulse");
+    void this.appNode.offsetWidth;
+    void this.imageNode.offsetWidth;
     this.appNode.classList.add("combo--pulse");
   }
 
