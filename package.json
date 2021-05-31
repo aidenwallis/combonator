@@ -6,6 +6,7 @@
   "author": "Aiden Wallis <aiden@aidenwallis.co.uk>",
   "license": "MIT",
   "scripts": {
+    "build": "parcel build src/overlay.html",
     "start": "parcel src/overlay.html"
   },
   "devDependencies": {
