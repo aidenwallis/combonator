@@ -28,11 +28,12 @@ export class URLParams {
   }
 
   public minComboAmount() {
-    const comboInt = parseInt(this.get("min_combo_amount") || "2");
-    return isNaN(comboInt) ? 2 : comboInt;
+    const comboInt = parseInt(this.get("min_combo_amount") || "4");
+    return isNaN(comboInt) ? 4 : comboInt;
   }
 
   public bannedEmotes() {
+    // TODO
     return this.get("banned_emotes").split(",") || [];
   }
 

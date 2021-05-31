@@ -8,10 +8,13 @@ export class ComboMatcher {
   private layout = new LayoutManager();
   private lastComboTime = 0;
 
-  public constructor(private comboCooldown: number) {}
+  public constructor(
+    private comboCooldown: number,
+    private minComboAmount: number,
+  ) {}
 
-  public static init(comboCooldown: number) {
-    return new ComboMatcher(comboCooldown * 1000);
+  public static init(comboCooldown: number, minComboAmount: number) {
+    return new ComboMatcher(comboCooldown * 1000, minComboAmount);
   }
 
   public handle(emotes: Emote[]) {
@@ -50,7 +53,12 @@ export class ComboMatcher {
     const delta = now - this.lastComboTime;
     this.lastComboTime = now;
 
-    if (this.comboCooldown === 0 || delta > this.comboCooldown) {
+    const notCooldown =
+      this.comboCooldown === 0 || delta > this.comboCooldown;
+    if (
+      this.currentComboAmount >= this.minComboAmount &&
+      notCooldown
+    ) {
       // Actually fire the fucking event.
       this.layout.handleCombo(
         this.currentComboEmote!,
