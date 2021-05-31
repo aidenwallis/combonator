@@ -29,6 +29,7 @@ export class Controller {
 
   public setEmote(combo: number, image: string) {
     this.amountNode.textContent = combo.toString();
+    this.imageNode.src = "";
     this.imageNode.src = image;
   }
 
