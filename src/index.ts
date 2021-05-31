@@ -15,7 +15,10 @@ export class App {
   public constructor() {
     this.connection = TwitchConnection.init(this.params.login());
     this.emoteStore = EmoteStore.init(this.params.id());
-    this.matcher = ComboMatcher.init(this.params.cooldown());
+    this.matcher = ComboMatcher.init(
+      this.params.cooldown(),
+      this.params.minComboAmount(),
+    );
 
     if (!this.params.isValid()) {
       window.location.href = "/";
