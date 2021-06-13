@@ -1,13 +1,15 @@
 #app {
   width: 400px;
   height: 160px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   > span {
     color: var(--text-color);
     -webkit-text-stroke: 2px black;
     text-shadow: 0 2px 3px #000;
     font-size: var(--text-size);
     padding: 0 1rem;
-    margin-top: 12px;
     vertical-align: middle;
     line-height: 1;
   }
