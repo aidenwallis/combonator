@@ -1,10 +1,4 @@
 .combo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  > * {
-    display: flex;
-  }
   &--enter {
     animation: slideIn .25s ease-in-out forwards;
   }
@@ -52,12 +46,16 @@
   40% {
     transform: translateX(50px);
   }
-  100% {
+  99% {
     transform: translateX(-400px);
+  }
+  100% {
+    display: none;
   }
 }
 
 #combo-image {
   min-height: 110px;
-  object-fit: contain;
+  max-width: 110px;
+  display: inline;
 }
