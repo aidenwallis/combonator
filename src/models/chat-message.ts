@@ -2,9 +2,9 @@ import {IRCMessage} from "irc-message-ts";
 import {Emote} from "./emotes";
 
 const twitchURL = (id: string) =>
-  `https://static-cdn.jtvnw.net/emoticons/v1/${encodeURIComponent(
+  `https://static-cdn.jtvnw.net/emoticons/v2/${encodeURIComponent(
     id,
-  )}/3.0`;
+  )}/default/dark/3.0`;
 
 export class ChatMessage {
   private emotes: Emote[] = [];
